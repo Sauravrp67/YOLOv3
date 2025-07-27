@@ -103,7 +103,7 @@ def hard_NMS(boxes, scores, iou_threshold):
 
 
 def run_NMS(prediction, iou_threshold, maxDets=100):
-    keep = np.zeros(len(prediction), dtype=np.int)
+    keep = np.zeros(len(prediction), dtype=np.int32)
     for cls_id in np.unique(prediction[:, 0]):
         inds = np.where(prediction[:, 0] == cls_id)[0]
         if len(inds) == 0:
