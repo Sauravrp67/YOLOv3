@@ -98,16 +98,20 @@ def show_values(axs, orient='h', space=0.005, mode='ap'):
 
 
 def visualize_AP_per_class(data_df):
-    plt.figure(figsize=(8, len(data_df)/4+4))
-    ax = sns.barplot(x='AP_50', y='CATEGORY', data=data_df)
-    ax.set(xlabel='AP@.50', ylabel='Category', title=f'AP@0.5 per categories (mAP@0.5: {data_df["AP_50"].mean():.4f})')
-    show_values(ax, 'h', mode='ap')
+    plt.figure(figsize=(8, len(data_df)/4 + 2))
+    # note: we put CATEGORY on the y-axis, AP_50 on the x-axis
+    ax = sns.barplot(y='CATEGORY', x='AP_50', data=data_df, orient='h')
+    ax.set(
+        xlabel='AP@0.50',
+        ylabel='Category',
+        title=f'AP@0.5 per category (mAP@0.5: {data_df["AP_50"].mean():.4f})'
+    )
+    show_values(ax, 'h', mode='ap')      # your helper to draw the numbers
     ax2 = ax.twiny()
     ax2.set_xlim(ax.get_xlim())
-    plt.grid('on')
-    fig = ax.get_figure()
-    fig.tight_layout()
-    return fig
+    ax.grid(True, axis='x')              # only grid the x‑axis
+    plt.tight_layout()
+    return ax.get_figure()
 
 
 def visualize_detect_rate_per_class(data_df):

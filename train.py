@@ -242,7 +242,7 @@ def main_work(rank, world_size, args, logger):
 }
             torch.save(save_opt, args.weight_dir / "last.pt")
 
-            if epoch % 1 == 0:
+            if epoch % 50 == 0:
                 val_loader = tqdm(val_loader, desc=f"[VAL:{epoch:03d}/{args.num_epochs:03d}]", ncols=115, leave=False)
                 mAP_dict, eval_text = validate(args=args, dataloader=val_loader, model=ema.module, evaluator=evaluator, epoch=epoch)
                 ap95 = mAP_dict["all"]["mAP_5095"]
