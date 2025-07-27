@@ -206,15 +206,15 @@ def main_work(rank, world_size, args, logger):
         dist.barrier()
 
     if args.rank == 0:
-        progress_bar = trange(start_epoch, args.num_epochs+1, total=args.num_epochs, initial=start_epoch, ncols=115)
+        progress_bar = trange(start_epoch, args.num_epochs+1, total=args.num_epochs, initial=start_epoch, ncols=115,leave=False)
     else:
-        progress_bar = range(start_epoch, args.num_epochs+1)
+        progress_bar = range(start_epoch, args.num_epochs+1,leave=False)
 
     best_epoch, best_score, best_mAP_str, mAP_dict = 0, 0, "", None
 
     for epoch in progress_bar:
         if args.rank == 0:
-            train_loader = tqdm(train_loader, desc=f"[TRAIN:{epoch:03d}/{args.num_epochs:03d}]", ncols=115, leave=False)
+            train_loader = tqdm(train_loader, desc=f"[TRAIN:{epoch:03d}/{args.num_epochs:03d}]", ncols=115, leave=True)
 
         train_sampler.set_epoch(epoch)
         train_loss_str = train(args=args, dataloader=train_loader, model=model, ema=ema, criterion=criterion, optimizer=optimizer, scaler=scaler)

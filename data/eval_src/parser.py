@@ -1,6 +1,2 @@
-import json
+from tqdm.auto import tqdm
 
-with open('voc-val.json') as f:
-    json_data = json.load(f)
-imageToid = json_data["imageToid"]
-print(imageToid)
