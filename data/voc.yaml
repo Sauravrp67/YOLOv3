@@ -7,7 +7,7 @@ TRAIN:
 VAL: 
  - images/test2007
 
-VAL_FILE: /kaggle/working/voc-val.json
+VAL_FILE: voc-val.json
 
 ANCHORS: [[0.248,      0.7237237 ],
           [0.36144578, 0.53      ],
