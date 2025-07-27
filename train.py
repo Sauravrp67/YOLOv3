@@ -229,7 +229,17 @@ def main_work(rank, world_size, args, logger):
                         "ema_update": ema.updates,
                         "optimizer_state": optimizer.state_dict(),
                         "scheduler_state": scheduler.state_dict(),
-                        "scaler_state_dict": scaler.state_dict()}
+                        "scaler_state_dict": scaler.state_dict(),
+                        "anchors": [[0.248,      0.7237237 ],
+                                    [0.36144578, 0.53      ],
+                                    [0.42,       0.9306667 ],
+                                    [0.456,      0.6858006 ],
+                                    [0.488,      0.8168168 ],
+                                    [0.6636637,  0.274     ],
+                                    [0.806,      0.648     ],
+                                    [0.8605263,  0.8736842 ],
+                                    [0.944,      0.5733333 ]]
+}
             torch.save(save_opt, args.weight_dir / "last.pt")
 
             if epoch % 1 == 0:
