@@ -20,7 +20,7 @@ TEXT_COLOR = (255, 255, 255)
 def generate_random_color(num_colors):
     color_list = []
     for i in range(num_colors):
-        hex_color = ''.join([random.choice('0123456789ABCDEF') for j in range(6)])
+        hex_color = ''.join([random.choice('987654321FEDCBA') for j in range(6)])
         rgb_color = tuple(int(hex_color[k:k+2], 16) for k in (0, 2, 4))
         color_list.append(rgb_color)
     return color_list
