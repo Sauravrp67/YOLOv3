@@ -1,4 +1,4 @@
-PATH: /kaggle/input/voc2007-2008/VOC_Dataset/VOC
+PATH: /kaggle/input/voc2007-2012-dataset/VOC_Dataset/VOC
 TRAIN: 
  - images/train2007
  - images/train2012
@@ -10,11 +10,15 @@ VAL:
 VAL_FILE: /kaggle/working/voc-val.json
 
 ANCHORS:
-  [[0.276,      0.608     ],
-  [0.068,      0.11711711],
-  [0.16,       0.26666668],
-  [0.492,      0.40533334],
-  [0.774,      0.82      ]]
+[[0.248,      0.7237237 ],
+ [0.36144578, 0.53      ],
+ [0.42,       0.9306667 ],
+ [0.456,      0.6858006 ],
+ [0.488,      0.8168168 ],
+ [0.6636637,  0.274     ],
+ [0.806,      0.648     ],
+ [0.8605263,  0.8736842 ],
+ [0.944,      0.5733333 ]]
 
 CLASS_INFO: {
   0: 'aeroplane',
